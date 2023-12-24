@@ -16,3 +16,6 @@ Installation is standard:
 ## Cinematic Trailer
 [![Video](https://img.youtube.com/vi/mouhkIRHh_k/maxresdefault.jpg)](https://www.youtube.com/watch?v=mouhkIRHh_k)
 
+## Gameplay Tutorial
+[![Video](https://img.youtube.com/vi/VtL-F7PAUfg/maxresdefault.jpg)](https://www.youtube.com/watch?v=VtL-F7PAUfg)
+
