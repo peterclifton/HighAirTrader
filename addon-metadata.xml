@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+# HighAirTrader - Add-on for FlightGear
+# Copyright (C) 2023 Peter Clifton
+# Writen and developed by Peter Clifton and Thomas Clifton
+#
+# HighAirTrader is an Open Source project and it is licensed
+# under the GNU Public License v3 (GPLv3)
+#
+-->
+
+<PropertyList>
+  <meta>
+    <file-type type="string">FlightGear add-on metadata</file-type>
+    <format-version type="int">1</format-version>
+  </meta>
+
+  <addon>
+    <identifier type="string">org.flightgear.addons.HighAirTrader</identifier>
+    <name type="string">HighAirTrader</name>
+    <version type="string">0.2.0</version>
+
+    <authors>
+      <author>
+        <name type="string">Peter Clifton</name>
+        <email type="string"> highairtrader@gmail.com </email>
+        <url type="string"></url>
+      </author>
+      <author>
+        <name type="string">Thomas Clifton</name>
+        <email type="string"></email>
+        <url type="string"></url>
+      </author>
+    </authors>
+
+    <maintainers>
+      <maintainer>
+        <name type="string">Peter Clifton</name>
+        <url type="string">
+          https://github.com/peterclifton/HighAirTrader
+        </url>
+      </maintainer>
+    </maintainers>
+
+    <short-description type="string">
+      An air-courier game for FlightGear.
+    </short-description>
+
+    <long-description type="string">
+      An addon for FlightGear where you play the role of an air-courier and receive fictional assignments to transport
+      various goods between different airports.
+    </long-description>
+
+    <license>
+      <designation type="string">
+        GNU GPL version 3 or later
+      </designation>
+
+      <file type="string">
+        <!-- Use a relative, slash-separated path to a file under the add-on
+             base directory that contains the add-on license text. -->
+        LICENSE.txt
+      </file>
+
+      <url type="string">
+        https://www.gnu.org/licenses/gpl-3.0.htm
+      </url>
+    </license>
+
+    <min-FG-version type="string">2019.1.1</min-FG-version>
+    <max-FG-version type="string">none</max-FG-version>
+
+    <urls>
+      <home-page type="string">
+        https://github.com/peterclifton/HighAirTrader
+      </home-page>
+
+      <download type="string">
+        https://github.com/peterclifton/HighAirTrader
+      </download>
+
+      <support type="string">
+        https://github.com/peterclifton/HighAirTrader
+      </support> 
+
+      <code-repository type="string">
+       https://github.com/peterclifton/HighAirTrader
+      </code-repository>
+    </urls>
+
+    <tags>
+      <tag type="string">HighAirTrader</tag>
+      <tag type="string">High Air Trader</tag>
+    </tags>
+
+
+  </addon>
+</PropertyList>
+
+
+<!-- LocalWords:  FlightGear xml UTF addon HighAirTrader github https
+-->
+<!-- LocalWords:  GPLv
+-->

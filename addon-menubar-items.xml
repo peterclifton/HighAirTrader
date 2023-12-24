@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+# HighAirTrader - Add-on for FlightGear
+# Copyright (C) 2023 Peter Clifton
+# Writen and developed by Peter Clifton and Thomas Clifton
+#
+# HighAirTrader is an Open Source project and it is licensed
+# under the GNU Public License v3 (GPLv3)
+#
+-->
+
+<PropertyList>
+    <meta>
+        <file-type type="string">FlightGear add-on menu bar items</file-type>
+        <format-version type="int">1</format-version>
+    </meta>
+    <menubar-items>
+        <menu>
+            <label>HighAirTrader</label>
+            <enabled type="bool">true</enabled>
+
+            <item>
+                <label>Get new job offer</label>
+                <binding>
+                    <command>nasal</command>
+                    <script>gui.popupTip(interface.getNextJob(),20);</script> <!--i.e. pop up stays up for 20 secs -->
+                </binding>
+            </item>
+
+            <item>
+                <label>View pending job offer</label>
+                <binding>
+                    <command>nasal</command>
+                    <script>gui.popupTip(interface.viewPendingOffer(),10);</script> <!--i.e. pop up stays up for 10 secs -->
+                </binding>
+            </item>
+
+            <item>
+                <label>Accept pending offer and start job now</label>
+                <binding>
+                    <command>nasal</command>
+                    <script>gui.popupTip(interface.acceptPendingOffer(),10);</script> 
+                </binding>
+            </item>
+
+            <item>
+                <label>View current job</label>
+                <binding>
+                    <command>nasal</command>
+                    <script>gui.popupTip(interface.viewCurrentJob(),10);</script> 
+                </binding>
+            </item>
+
+            <item>
+                <label>Update office: Job complete!</label>
+                <binding>
+                    <command>nasal</command>
+                    <script>gui.popupTip(interface.markJobComplete(),10);</script> 
+                </binding>
+            </item>
+
+            <item>
+                <label>Update office: Job aborted due to crash!</label>
+                <binding>
+                    <command>nasal</command>
+                    <script>gui.popupTip(interface.markJobAbortedDueCrash(),5);</script> 
+                </binding>
+            </item>
+
+            <item>
+                <label>Update office: Job aborted due to any other reason</label>
+                <binding>
+                    <command>nasal</command>
+                    <script>gui.popupTip(interface.markJobAbortedDueOther(),5);</script> 
+                </binding>
+            </item>
+
+            <item>
+                <label>Get performance summary</label>
+                <binding>
+                    <command>nasal</command>
+                    <script>gui.popupTip(interface.get_perf_summary(),10);</script> 
+                </binding>
+            </item>
+
+            <item>
+                <label>About HighAirTrader</label>
+                <binding>
+                    <command>nasal</command>
+                    <script>gui.popupTip(interface.aboutHighAirTrader(),5);</script> 
+                </binding>
+            </item>
+
+            <item>
+                <label>Reset HighAirTrader (Caution: wipes saved data)</label>
+                <binding>
+                    <command>nasal</command>
+                    <script>gui.popupTip(interface.reset_game(),10);</script> 
+                </binding>
+            </item>
+
+            <!--
+            <item>
+                <label>Debug Tester</label>
+                <binding>
+                    <command>nasal</command>
+                    <script>gui.popupTip(interface.debugtester(),5);</script> 
+                </binding>
+            </item>
+            -->
+
+            <!--
+            <item>
+                <label>My addon dialog</label>
+                <binding>
+                    <command>dialog-show</command>
+                    <dialog-name>addon-sample-dialog</dialog-name>
+                </binding>
+            </item>
+            -->
+
+            <!--
+            FOR DEVELOPMENT ONLY!
+            trigger reload of addon-main.nas
+            1) This item should be REMOVED for release versions.
+            2) Ensure the label is unique
+            3) replace addon ID  to match your addon
+            -->
+            <!-- for compatibility with FG Versions pre 2020.1
+            <item>
+                <label>Reload Skeleton</label>
+                <binding>
+                    <command>property-toggle</command>
+                    <property>/addons/by-id/org.flightgear.addons.Skeleton/reload</property>
+                </binding>
+            </item>
+            -->
+            <!-- for FG Version >= 2020.1 use the fgcommand -->
+            <!--
+            <item>
+                <label>Reload HighAirTrader</label>
+                <binding>
+                    <command>addon-reload</command>
+                    <id>org.flightgear.addons.HighAirTrader</id>
+                </binding>
+            </item>
+            -->
+        </menu>
+    </menubar-items>
+</PropertyList>
+
