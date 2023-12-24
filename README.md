@@ -13,3 +13,6 @@ Installation is standard:
    section and select the folder with the unzipped "HighAirTrader" add-on directory 
    (or add command line option: `--addon=path`), and click "Fly!".
 
+## Cinematic Trailer
+[![Video](https://img.youtube.com/vi/mouhkIRHh_k/maxresdefault.jpg)](https://www.youtube.com/watch?v=mouhkIRHh_k)
+
