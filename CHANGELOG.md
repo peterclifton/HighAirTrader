@@ -5,8 +5,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased]
 
-- Check that the current airport is the same as the from airport on the offer
-  before allowing the pending offer to be excepted
+- Check that the current airport is the same as the from airport on the offer before allowing the pending offer to be excepted
 - Limit user interface functionality when not on the ground
 
 ## [0.2.0] - 2023-11-19
@@ -32,8 +31,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ### Fixed
 
-- Initial selection of Get Next Job in the menu no longer freezes game for few
-  seconds
+- Initial selection of Get Next Job in the menu no longer freezes game for few seconds
 
 ## [0.0.1] - 2023-11-15
 
