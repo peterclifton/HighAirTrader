@@ -7,7 +7,7 @@ based around the concept of transporting goods to different airports.
 
 Installation is standard:
 
-1. Download "Logbook" add-on and unzip it (i.e. in GitHub click on the "Code" 
+1. Download "HighAirTrader" add-on and unzip it (i.e. in GitHub click on the "Code" 
    button then "Download Zip"
 2. In the Launcher go to "Add-ons" tab. Click "Add" button by "Add-on Module folders" 
    section and select the folder with the unzipped "HighAirTrader" add-on directory 
