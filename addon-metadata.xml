@@ -60,7 +60,7 @@
       <file type="string">
         <!-- Use a relative, slash-separated path to a file under the add-on
              base directory that contains the add-on license text. -->
-        LICENSE.txt
+        LICENSE
       </file>
 
       <url type="string">
