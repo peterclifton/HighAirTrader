@@ -100,7 +100,7 @@ var JobSheet = {
                    (me.fuelusage             == nil ? '' : me.fuelusage)             ~ "||" ~
                    (me.repaircosts           == nil ? '' : me.repaircosts)           ~ "||" ~
                    (me.fuelcosts             == nil ? '' : me.fuelcosts)             ~ "||" ~
-                   (me.paymentrecieved       == nil ? '' : me.paymentrecieved)       ~ "\n" ;
+                   (me.paymentrecieved       == nil ? '' : me.paymentrecieved)       ~ "||\n" ;
         return line;
     },
 
