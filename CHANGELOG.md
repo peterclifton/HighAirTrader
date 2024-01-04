@@ -8,6 +8,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Check that the current airport is the same as the from airport on the offer before allowing the pending offer to be excepted
 - Limit user interface functionality when not on the ground
 
+## [0.2.1] - 2024-01-04
+
+### Fixed
+
+- Fix typo that causes the addon to not work at all
+- Fix formatting (in the ReadMe etc)
+- Fix issue that could cause the Performance Summary not to work
+- Updated the CHANGELOG 
+
 ## [0.2.0] - 2023-11-19
 
 ### Changed
