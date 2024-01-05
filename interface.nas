@@ -36,7 +36,7 @@ var markJobComplete = func() {
     var result = "No current job!";
 
     var ao_draw = storage.AcceptedOfferDraw.new();
-    if(getprop("/sim/aircraft-id") == "ufo") {
+    if(getprop("/sim/aircraft") == "ufo" or getprop("/sim/aircraft") == "bluebird") {
         feedbackstring = "Aircraft not possible";
     }
     else if(ao_draw.contains_acceptedoffer()) {
@@ -198,7 +198,7 @@ var acceptPendingOffer = func() {
     if(ao_draw.contains_acceptedoffer()) {
         feedbackstring = "Existing job must be resolved first!";
     }
-    else if(getprop("/sim/aircraft-id") == "ufo") {
+    else if(getprop("/sim/aircraft") == "ufo" or getprop("/sim/aircraft") == "bluebird") {
         feedbackstring = "Aircraft not possible";
     }
     else if(draw.contains_pendingoffer()) {
