@@ -20,6 +20,14 @@
             <enabled type="bool">true</enabled>
 
             <item>
+                <label>Configuration</label>
+                <binding>
+                    <command>dialog-show</command>
+                    <dialog-name>config</dialog-name>
+                </binding>
+            </item>
+
+            <item>
                 <label>Get new job offer</label>
                 <binding>
                     <command>nasal</command>
@@ -148,4 +156,3 @@
         </menu>
     </menubar-items>
 </PropertyList>
-

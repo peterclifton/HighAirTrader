@@ -15,6 +15,21 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+
+# Configuration file used to store properties.
+
+var config_file = nil;
+var config_node = props.globals.getNode("sim/highairtrader/config");
+var exit_listener = nil;
+
+var read_config = func {
+	io.read_properties(config_file, config_node);
+}
+
+var write_config = func {
+	io.write_properties(config_file, config_node);
+}
+
 var main = func(addon) {
   #logprint(LOG_INFO, "Skeleton addon initialized from path ", addon.basePath);
 
