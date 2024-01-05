@@ -195,11 +195,11 @@ var acceptPendingOffer = func() {
     var draw = storage.PendingOfferDraw.new();
     var ao_draw = storage.AcceptedOfferDraw.new();
 
-    if(ao_draw.contains_acceptedoffer()) {
-        feedbackstring = "Existing job must be resolved first!";
-    }
-    else if(getprop("/sim/aircraft") == "ufo" or getprop("/sim/aircraft") == "bluebird") {
+    if(getprop("/sim/aircraft") == "ufo" or getprop("/sim/aircraft") == "bluebird") {
         feedbackstring = "Aircraft not possible";
+    }
+    else if(ao_draw.contains_acceptedoffer()) {
+        feedbackstring = "Existing job must be resolved first!";
     }
     else if(draw.contains_pendingoffer()) {
         var pendofferstring = draw.view();      
