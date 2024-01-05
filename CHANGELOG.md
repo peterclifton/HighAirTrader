@@ -8,6 +8,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Check that the current airport is the same as the from airport on the offer before allowing the pending offer to be excepted
 - Limit user interface functionality when not on the ground
 
+## [0.3.0] - 2024-01-05
+
+### Added
+
+- Performance summary now includes a description of the players current 'reputation level'
+
 ## [0.2.1] - 2024-01-04
 
 ### Fixed

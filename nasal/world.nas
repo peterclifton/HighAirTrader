@@ -292,7 +292,35 @@ var Office = {
         var jsc = storage.JobSheetCabinet.new();
         var jsbook = paperwork.JobSheetBook.new(jsc.view_jobsheet_book());
         var result = jsbook.describe();
+        # Get the pilot's current reputation level and append it to the summary string:
+        var reputation_level = me.judge_reputation_level(jsbook);
+        var rep_level_str = sprintf("(reputation level: %s )", reputation_level);
+        result = result ~ " " ~ rep_level_str;
         return result;
+    },
+     judge_reputation_level: func(jobsheetbook) {
+        # Maps the current running balance to a reputation category 
+        # :params: a jobsheetbook object
+        # :returns: rep_level: string
+        # todo: consider moving this mapping constants.nas
+        var balance = jobsheetbook.running_balance();
+        var rep_level = "";
+        if(balance < 5000.0) {
+            rep_level = "obscure";
+        }
+        elsif(balance >= 5000.0 and balance < 20000.0) {
+            rep_level = "local";
+        }
+        elsif(balance >= 20000.0 and balance < 100000.0) {
+            rep_level = "regional";
+        }
+        elsif(balance >= 100000.0 and balance < 1000000.0) {
+            rep_level = "national";
+        }
+        else { # i.e. balance is greater than or equal to 1M
+            rep_level = "global";
+        }
+        return rep_level;
     },
     shred_all_paperwork: func() {
         # Caution: calling this will reset all game records
