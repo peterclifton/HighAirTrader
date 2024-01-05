@@ -139,10 +139,12 @@ var JobSheet = {
         me.paymentrecieved       = data[21] == '' ? nil  : data[21];
     },
 
+    
     pretty_print_job: func() {
         # Returns a pretty formatted string describing the job as detailed in jobsheet
         # :returns r: a string
-        var r = sprintf("Transport %s from %s (%s) to %s (%s). Depart asap after %d:00 hours. Heading: %d Distance: %.1f nm. Payment £%.2f", 
+        
+        var r = sprintf("Transport %s from %s (%s) to %s (%s). Depart asap after %d:00 hours. Heading: %d Distance: %.1f nm. Payment %s%.2f", 
                             me.goods, 
                             me.fromName, 
                             me.fromId, 
@@ -151,6 +153,7 @@ var JobSheet = {
                             funcs.getHourPartOfDaySecs(me.departafter),
                             math.round(me.heading),
                             me.distance,
+                            funcs.getCurrency(),
                             me.jobvalue);
         debug.dump(r);
         return r;
@@ -162,10 +165,10 @@ var JobSheet = {
         # :returns outcomestr: a string
         var outcomestr = "";
         if((me.status == 'RESOLVED') and (me.outcometype == 'ABORTED_CRASH')) {
-            outcomestr =" Job aborted due to crash. Net payment: " ~ sprintf("£%.2f", me.netpayment());
+            outcomestr =" Job aborted due to crash. Net payment: " ~ sprintf("%s%.2f", funcs.getCurrency(), me.netpayment());
         }
         else if((me.status == 'RESOLVED') and (me.outcometype == 'ABORTED_OTHER')) {
-            outcomestr = "Job aborted. Net payment: " ~ sprintf("£%.2f", me.netpayment());
+            outcomestr = "Job aborted. Net payment: " ~ sprintf("%s%.2f", funcs.getCurrency(), me.netpayment());
         }
         else if((me.status == 'RESOLVED') and (me.outcometype == 'COMPLETED')) {
             outcomestr = me._pretty_print_completed_outcome();
@@ -179,21 +182,24 @@ var JobSheet = {
         return me.paymentrecieved - me.fuelcosts - me.repaircosts;
     },
 
+
+
     _pretty_print_completed_outcome: func() {
         var outcomestr = "";
         var hrs  = funcs.getHourPartOfDaySecs(me.outcometime);
         var mins = funcs.getMinsPartOfDaySecs(me.outcometime);
 
+
         if((me.status == 'RESOLVED') and (me.outcometype == 'COMPLETED')) {
             if(me.outcomeloc == me.toId) {
                 var r1= "Goods delivered to " ~ me.outcomeloc ~ " at: " ~ hrs ~ ":" ~ mins ~ " hours.";
-                var r2= "Net payment: " ~ sprintf("£%.2f", me.netpayment());
+                var r2= "Net payment: " ~ sprintf("%s%.2f", funcs.getCurrency(), me.netpayment());
                 outcomestr = r1 ~ " " ~ r2; 
             }
             else {
                 var r1 = "You diverted to " ~ me.outcomeloc ~ " and the goods have been unloaded";
                 var r2 = "here rather than at " ~ me.toId  ~ "." ;
-                var r3 = "Time: " ~ hrs ~ ":" ~ mins ~ " hours. Net payment: " ~ sprintf("£%.2f", me.netpayment());
+                var r3 = "Time: " ~ hrs ~ ":" ~ mins ~ " hours. Net payment: " ~ sprintf("%s%.2f", funcs.getCurrency(), me.netpayment());
                 outcomestr = r1 ~ " " ~ r2 ~ " " ~ r3; 
             }
         }
@@ -232,7 +238,7 @@ var JobSheetBook = {
     describe: func() {
         # Returns a nicely formatted string describing the running totals re
         # the jobs carried out to date
-        return sprintf("%d jobs carried out to date. Net profit running total:  £%.2f", me.num_of_jobsheets_in_book(), me.running_balance());
+        return sprintf("%d jobs carried out to date. Net profit running total: %s%.2f", me.num_of_jobsheets_in_book(), funcs.getCurrency(), me.running_balance());
     },
 };
 

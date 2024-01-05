@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- this file requires FlightGear version 2018.2 or newer -->
 <PropertyList>
-    <name>addon-sample-dialog</name>
-    <layout>vbox</layout>
-	<width>200</width>
+	<name>configs</name>
+	<layout>vbox</layout>
+	<width>300</width>
 
 	<group>
 		<layout>hbox</layout>
@@ -11,7 +11,7 @@
 			<stretch>1</stretch>
 		</empty>
 		<text>
-			<label>Addon sample dialog</label>
+			<label>HighAirTrader Configuration</label>
 		</text>
 		<empty>
 			<stretch>1</stretch>
@@ -28,9 +28,19 @@
 		</button>
 	</group>
 	<hrule />
-    <text>
-		<label>Some text for this dialog</label>
-	</text>
+
+	<combo>
+		<!--<halign>right</halign>
+		<pref-width>150</pref-width>-->
+		<property>/sim/highairtrader/configs/currency</property>
+		<value>Dollars</value>
+		<value>Pounds</value>
+		<value>Euros</value>
+		<binding>
+			<command>dialog-apply</command>
+		</binding>
+		<live>true</live>
+	</combo>
 
 	<button>
 		<legend>Close</legend>

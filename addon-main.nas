@@ -15,12 +15,32 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+
+# Configuration file used to store properties.
+
+var config_file = nil;
+var config_node = props.globals.getNode("sim/highairtrader/configs");
+var exit_listener = nil;
+
+var read_config = func {
+	io.read_properties(config_file, config_node);
+}
+
+var write_config = func {
+	io.write_properties(config_file, config_node);
+}
+
 var main = func(addon) {
   #logprint(LOG_INFO, "Skeleton addon initialized from path ", addon.basePath);
+  var storageDir = addon.createStorageDir();
+  config_file = storageDir ~ "/config.xml";
+  print("Created storage directory: " ~ storageDir);
+	read_config();
 
   var fname = addon.basePath ~ "/" ~ "interface.nas";
   io.load_nasal(fname); # no second arg so same space will default to the file name
   print("Loaded " ~ fname ~ " from " ~ addon.basePath);
+
 
   var nasalfiles = {storage:    "nasal/storage.nas",
                     paperwork:  "nasal/paperwork.nas",
@@ -37,8 +57,10 @@ var main = func(addon) {
 
   # Create $FG_HOME/Export/Addons.org.flightgear.addons.HighAirTrader directory
   # See: https://forum.flightgear.org/viewtopic.php?f=30&t=32882&start=180
-  var storageDir = addon.createStorageDir();
-  print("Created storate directory: " ~ storageDir);
+
+
+  if (exit_listener != nil) removelistener(exit_listener);
+	exit_listener = setlistener("/sim/signals/exit", write_config);
 
   # If we call te findAirportsWithinRange function for the first time during 
   # gameplay it will cause a freeze for a few seconds while the game waits
@@ -50,6 +72,10 @@ var main = func(addon) {
   print(s1 ~ " " ~ s2);
 }
 
-
+var unload = func {
+	if (exit_listener != nil) removelistener(exit_listener);
+	exit_listener = nil;
+	write_config();
+}
 
 
