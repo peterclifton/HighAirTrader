@@ -23,7 +23,7 @@
                 <label>Configuration</label>
                 <binding>
                     <command>dialog-show</command>
-                    <dialog-name>config</dialog-name>
+                    <dialog-name>configs</dialog-name>
                 </binding>
             </item>
 

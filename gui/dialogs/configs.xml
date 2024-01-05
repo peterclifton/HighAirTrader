@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- this file requires FlightGear version 2018.2 or newer -->
 <PropertyList>
-	<name>config</name>
+	<name>configs</name>
 	<layout>vbox</layout>
 	<width>200</width>
 
@@ -39,7 +39,7 @@
 	<combo>
 		<!--<halign>right</halign>
 		<pref-width>150</pref-width>-->
-		<property>/sim/highairtrader/config/currency</property>
+		<property>/sim/highairtrader/configs/currency</property>
 		<value>Dollars</value>
 		<value>Pounds</value>
 		<value>Euros</value>
