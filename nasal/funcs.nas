@@ -107,6 +107,26 @@ var getLocalTime = func() {
     return result;
 }
 
+
+var getCurrency = func() {
+    # Gets the currency
+    # :returns result: string
+    var currency = "";
+    if(getprop("/sim/highairtrader/configs/currency") == "Dollars") {
+            currency ="$";
+    }
+    else if (getprop("/sim/highairtrader/configs/currency") == "Pounds") {
+        currency ="£";        
+    }
+    else if(getprop("/sim/highairtrader/configs/currency") == "Euros") {
+        currency ="€";
+    }
+    else {
+        currency = "$";
+    }
+    return currency;
+}
+
 var getTotalFuelLbs = func() {
     # Get current total-fuel-lbs
     # :returns fuelLbs: double

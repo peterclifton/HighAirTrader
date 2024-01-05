@@ -30,5 +30,11 @@
             </org.flightgear.addons.HighAirTrader>
         </by-id>
     </addons>
+    <sim>
+        <highairtrader>
+            <configs>
+                <currency type="string">Dollars</currency>
+            </configs>
+        </highairtrader>
+    </sim>
 </PropertyList>
-
