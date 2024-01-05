@@ -3,7 +3,7 @@
 <PropertyList>
 	<name>configs</name>
 	<layout>vbox</layout>
-	<width>200</width>
+	<width>300</width>
 
 	<group>
 		<layout>hbox</layout>
@@ -29,13 +29,6 @@
 	</group>
 	<hrule />
 
-	<!--<checkbox>
-		<label>Enable</label>
-		<halign>left</halign>
-		<property>/sim/highairtrader/config/enable</property>
-		<binding><command>dialog-apply</command></binding>
-		<live>true</live>
-	</checkbox>-->
 	<combo>
 		<!--<halign>right</halign>
 		<pref-width>150</pref-width>-->
