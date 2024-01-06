@@ -7,13 +7,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 - Check that the current airport is the same as the from airport on the offer before allowing the pending offer to be excepted
 - Limit user interface functionality when not on the ground
-
+- More specialised missions for specific aircraft 
+- Check if crashed on landing before rewarding
+	
 ## [0.3.0] - 2024-01-05
 
 ### Added
 
 - Performance summary now includes a description of the players current 'reputation level'
+- Add config menu so players can alter how money units are displayed (i.e. with a GBP, US Dollar or Euro symbol)
+- Disable addon functionality for the super fast fictional craft (UFO, Bluebird)
+- Update the CHANGELOG 
 
+	
 ## [0.2.1] - 2024-01-04
 
 ### Fixed
@@ -21,7 +27,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Fix typo that causes the addon to not work at all
 - Fix formatting (in the ReadMe etc)
 - Fix issue that could cause the Performance Summary not to work
-- Updated the CHANGELOG 
+- Update the CHANGELOG 
 
 ## [0.2.0] - 2023-11-19
 
@@ -35,12 +41,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ### Changed
 
-- Edited list of goods that can be transported
-- Tested on Flightgear Version 2020.3.6 on Linux
+- Edit list of goods that can be transported
+- Test on Flightgear Version 2020.3.6 on Linux
 
 ### Added
 
-- Added documentation to nasal scripts
+- Add documentation to nasal scripts
 
 ## [0.0.2] - 2023-11-17
 
