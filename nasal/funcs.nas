@@ -76,13 +76,42 @@ var getRandNearAirportId = func() {
 var getRandNearAirport = func() {
     # Selects and returns a random airport within 100nm
     # :returns result: an airport object
-    var result = "";
+    var result = ""; # would probably be better for this to be nil rather than the empty string?
     var apts = findAirportsWithinRange(100);
     var size_ = size(apts);
 
     if(size_ > 1) {
         var selection = math.floor((rand() * (size_ - 1.01)) +1);
         result = apts[selection]
+    }
+    return result;
+}
+
+var getLongHaulDestiAirport = func() {
+    # Selects and returns an airport to serve as the destination for a
+    # long haul freight flight
+    # :returns result: an airport object
+    #var result = airportinfo('EGLL'); # dummy function at moment - just returns London Heathrow
+    var closest_airport_id = getClosestAirportId();
+    var ap_candidate_list = sublist(constants.long_haul_airports_ICAO_list, closest_airport_id);
+    var chosen_ap_id = getRandElementOfVector(ap_candidate_list);
+
+    # findAirportsByICAO returns a vector with matching airports
+    # as we are searching by full ICAO we expect that it will be a vector
+    # of size 1 (in any case we will take the 1st element so would not matter
+    # to us if it was bigger). However if he ICAO we passed it did not match
+    # any airports in FlightGear it will return an empty vector
+    # just in case this should happen for some reason (e.g. say because of an erroneous
+    # value in constants.long_haul_airports_ICAO_list) we deal with this below
+    # by checking the size of the returned vector and if it is size 0
+    # we just return EGLL airport (Heathrow) as a fallback.
+    var result = nil;
+    var vector_with_matching_airport = findAirportsByICAO(chosen_ap_id);
+    if (size(vector_with_matching_airport) > 0) {
+        result = vector_with_matching_airport[0];
+    }
+    else {
+        result = findAirportsByICAO('EGLL')[0];
     }
     return result;
 }
@@ -127,6 +156,27 @@ var getCurrency = func() {
     return currency;
 }
 
+
+var getFreightMarket = func() {
+    # Gets the Freight-market (i.e. Short-haul, Long-haul)
+    # :returns result: string
+    var haul = "";
+    if(getprop("/sim/highairtrader/configs/freight-market") == "Short-haul") {
+            haul = "short-haul";
+    }
+    else if (getprop("/sim/highairtrader/configs/freight-market") == "Long-haul") {
+        haul = "long-haul";        
+    }
+    # Future feature:
+    #else if(getprop("/sim/highairtrader/configs/freight-market") == "Long-haul") {
+    #    currency ="long-haul";
+    #}
+    else {
+        haul = "short-haul";
+    }
+    return haul;
+}
+
 var getTotalFuelLbs = func() {
     # Get current total-fuel-lbs
     # :returns fuelLbs: double
@@ -146,4 +196,18 @@ var getRandElementOfVector = func(myvec) {
     return myvec[i];
 }
 
-
+var sublist = func(myvec, elem_to_exclude) {
+    # expects a vector and a scalar, will return a new vector which is like the
+    # original one but excluding any elements which equal the elem_to_exclude
+    # if an empty vector is passed to it will return an empty vector
+    # :params myvec: a vector
+    # :params elem_to_exclude:
+    # :returns result: a vector excluding any element which equals elem_to_exclude
+    var result = [];
+    foreach (element; myvec) {
+        if (element != elem_to_exclude) {
+            append(result, element);
+        }
+    }
+    return result;
+}

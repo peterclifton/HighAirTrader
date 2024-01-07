@@ -30,12 +30,24 @@
 	<hrule />
 
 	<combo>
-		<!--<halign>right</halign>
-		<pref-width>150</pref-width>-->
+		<halign>center</halign>
+		<pref-width>160</pref-width>
 		<property>/sim/highairtrader/configs/currency</property>
 		<value>Dollars</value>
 		<value>Pounds</value>
 		<value>Euros</value>
+		<binding>
+			<command>dialog-apply</command>
+		</binding>
+		<live>true</live>
+	</combo>
+
+        <combo>
+		<halign>center</halign>
+		<pref-width>160</pref-width>
+		<property>/sim/highairtrader/configs/freight-market</property>
+		<value>Short-haul</value>
+		<value>Long-haul</value>
 		<binding>
 			<command>dialog-apply</command>
 		</binding>
