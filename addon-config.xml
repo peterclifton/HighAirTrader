@@ -34,6 +34,8 @@
         <highairtrader>
             <configs>
                 <currency type="string">Dollars</currency>
+                <freight-market type="string">Short-haul</freight-market>
+                <leaderboard type="bool">true</leaderboard>
             </configs>
         </highairtrader>
     </sim>
