@@ -186,6 +186,42 @@ var getTotalFuelLbs = func() {
     return fuelLbs;
 }
 
+var negligibleGroundSpeed = func() {
+    # Checks to see if the current ground speed is negligible or not
+    # if groundspeed-kt is under 1 will return 1 else 0
+    # :returns result: bool
+
+    var groundspeedkt = props.globals.getNode("/velocities/groundspeed-kt").getValue();
+    if (groundspeedkt < 1.0) {
+        result = 1;
+    }
+    else {
+        result = 0;
+    }
+    return result;
+}
+
+var brokenGearDetected = func() {
+    # Attempts to detect if any of the landing gears are broken
+    # Returns 1 if detects any broken gears, 0 otherwise
+    # :returns broken_gear_detected: bool
+    # TODO: check that this property is dependable and can be expected 
+    # to be in all FlihtGear versions etc
+    gdata = props.globals.getNode("/fdm/jsbsim/gear").getChildren("unit"); 
+
+    var broken_gear_detected = 0;
+
+    foreach(item; gdata) {
+        broken_status = item.getChild("broken");
+        if (broken_status != nil) {
+            if (broken_status.getValue() == 1) {
+                broken_gear_detected = 1;
+            }
+        }
+    }
+    return broken_gear_detected;
+}
+
 # --------------------- Generic Functions -------------------------------------
 
 var getRandElementOfVector = func(myvec) {

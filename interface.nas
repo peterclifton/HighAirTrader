@@ -33,11 +33,17 @@ var markJobComplete = func() {
     #
     # :returns a text string that can be displayed to the user
     var storageDir = constants.storagedirpath;
-    var result = "No current job!";
+    var feedbackstring = "No current job!";
 
     var ao_draw = storage.AcceptedOfferDraw.new();
     if(getprop("/sim/aircraft") == "ufo" or getprop("/sim/aircraft") == "bluebird") {
         feedbackstring = "Aircraft not possible";
+    }
+    else if(funcs.negligibleGroundSpeed() == 0) {
+        feedbackstring = "Aircraft still moving - please come to a stop first";
+    }
+    else if(funcs.brokenGearDetected() == 1) {
+        feedbackstring = "Aircraft is damaged - please report crash to office";
     }
     else if(ao_draw.contains_acceptedoffer()) {
 
@@ -56,9 +62,9 @@ var markJobComplete = func() {
         var jScabinet = storage.JobSheetCabinet.new();
         jScabinet.put(jS.to_line());
 
-        result = jS.pretty_print_outcome();
+        feedbackstring = jS.pretty_print_outcome();
     }
-    return result;
+    return feedbackstring;
 }
 
 var markJobAbortedDueCrash = func() {
@@ -100,10 +106,16 @@ var markJobAbortedDueOther = func () {
     #
     # :returns a text string that can be displayed to the user
     var storageDir = constants.storagedirpath;
-    var result = "No current job!";
+    var feedbackstring = "No current job!";
     var ao_draw = storage.AcceptedOfferDraw.new();
-    
-    if(ao_draw.contains_acceptedoffer()) {
+
+    if(funcs.negligibleGroundSpeed() == 0) {
+        feedbackstring = "Aircraft still moving - please come to a stop first";
+    }
+    else if(funcs.brokenGearDetected() == 1) {
+        feedbackstring = "Aircraft is damaged - please report crash to office";
+    }
+    else if(ao_draw.contains_acceptedoffer()) {
 
         var pilot = world.Pilot.new();
         var maintenancemanager = world.MaintenanceManager.new();
@@ -120,9 +132,9 @@ var markJobAbortedDueOther = func () {
 
         var jScabinet = storage.JobSheetCabinet.new();
         jScabinet.put(jS.to_line());
-        result = jS.pretty_print_outcome();
+        feedbackstring = jS.pretty_print_outcome();
     }
-    return result;
+    return feedbackstring;
 }
 
 var getNextJob = func() {
@@ -136,6 +148,10 @@ var getNextJob = func() {
 
     if(ao_draw.contains_acceptedoffer()) {
         feedbackstring = "Existing job must be resolved first!";
+    }
+
+    else if(funcs.negligibleGroundSpeed() == 0) {
+        feedbackstring = "Aircraft still moving - please come to a stop first";
     }
     else {
         var pilot = world.Pilot.new();
