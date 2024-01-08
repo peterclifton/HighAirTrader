@@ -37,6 +37,18 @@
                 <freight-market type="string">Short-haul</freight-market>
                 <leaderboard type="bool">true</leaderboard>
             </configs>
+            <lewf>
+                <name>Leaderboard Enabled While Flying</name>
+                <enabled type="bool">true</enabled>
+                <command>nasal</command>
+                <condition>
+                    <equals>
+                        <property>/position/altitude-agl-ft</property>
+                        <value>200</value>
+                    </equals>
+                </condition>
+                <script>funcs.check_leaderboard();</script>
+            </lewf>
         </highairtrader>
     </sim>
     <input>
@@ -75,4 +87,5 @@
             </key>
         </keyboard>
     </input>
+
 </PropertyList>

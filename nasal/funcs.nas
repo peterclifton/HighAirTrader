@@ -227,3 +227,12 @@ var speed_down = func {
         controls.speedup(-1);
     }
 }
+
+var check_leaderboard = func {
+    print("asdfs");
+    if (getprop("/sim/highairtrader/configs/leaderboard")==1) {
+        setprop("/sim/highairtrader/lewf/enabled", 1);
+    } else {
+        setprop("/sim/highairtrader/lewf/enabled", 0);
+    }
+}
