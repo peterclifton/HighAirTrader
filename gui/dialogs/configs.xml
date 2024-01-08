@@ -59,7 +59,12 @@
 		<label>Enable Leaderboard (Disables time speed-up)</label>
 		<property>/sim/highairtrader/configs/leaderboard</property>
 		<binding>
-			<command>dialog-apply</command>
+			<command>nasal</command>
+			<script>
+				if(getprop("/gear/gear/wow")) {
+					setprop("/sim/highairtrader/configs/leaderboard", !getprop("/sim/highairtrader/configs/leaderboard"));
+				  }
+			</script>
 		</binding>
 		<live>true</live>
 	</checkbox>
