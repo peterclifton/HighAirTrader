@@ -56,7 +56,7 @@
 
 	<checkbox>
 		<halign>center</halign>
-		<label>Enable Leaderboard (Disables time speed-up)</label>
+		<label>Enable Leaderboard (Disables time speed-up) - NOT IMPLEMENTED YET</label>
 		<property>/sim/highairtrader/configs/leaderboard</property>
 		<binding>
 			<command>nasal</command>

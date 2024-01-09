@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- this file requires FlightGear version 2018.2 or newer -->
+<PropertyList>
+    <name>myjob</name>
+    <layout>vbox</layout>
+
+    <group>
+        <layout>hbox</layout>
+        <empty>
+            <stretch>1</stretch>
+        </empty>
+        <text>
+            <label>My Job</label>
+        </text>
+        <empty>
+            <stretch>1</stretch>
+        </empty>
+        <button>
+            <pref-width>16</pref-width>
+            <pref-height>16</pref-height>
+            <legend></legend>
+            <keynum>27</keynum>
+            <border>2</border>
+            <binding>
+                <command>dialog-close</command>
+            </binding>
+        </button>
+    </group>
+    <hrule />
+
+    <button>
+        <legend>Get new job offer</legend>
+        <binding>
+            <command>nasal</command>
+            <script>gui.popupTip(interface.getNextJob(),20);</script> <!--i.e.
+            pop up stays up for 20 secs -->
+        </binding>
+    </button>
+    <button>
+        <legend>View pending job offer</legend>
+        <binding>
+            <command>nasal</command>
+            <script>gui.popupTip(interface.viewPendingOffer(),10);</script> <!--i.e.
+            pop up stays up for 10 secs -->
+        </binding>
+    </button>
+    <button>
+        <legend>Accept pending offer and start job now</legend>
+        <binding>
+            <command>nasal</command>
+            <script>gui.popupTip(interface.acceptPendingOffer(),10);</script>
+        </binding>
+    </button>
+    <button>
+        <legend>View current job</legend>
+        <binding>
+            <command>nasal</command>
+            <script>gui.popupTip(interface.viewCurrentJob(),10);</script>
+        </binding>
+    </button>
+    <button>
+        <legend>Update office: Job complete!</legend>
+        <binding>
+            <command>nasal</command>
+            <script>gui.popupTip(interface.markJobComplete(),10);</script>
+        </binding>
+    </button>
+    <button>
+        <legend>Update office: Job aborted due to crash!</legend>
+        <binding>
+            <command>nasal</command>
+            <script>gui.popupTip(interface.markJobAbortedDueCrash(),5);</script>
+        </binding>
+    </button>
+    <button>
+        <legend>Update office: Job aborted due to any other reason</legend>
+        <binding>
+            <command>nasal</command>
+            <script>gui.popupTip(interface.markJobAbortedDueOther(),5);</script>
+        </binding>
+    </button>
+    <button>
+        <legend>Get performance summary</legend>
+        <binding>
+            <command>nasal</command>
+            <script>gui.popupTip(interface.get_perf_summary(),10);</script>
+        </binding>
+    </button>
+
+    <hrule />
+
+    <button>
+        <legend>Close</legend>
+        <binding>
+            <command>dialog-close</command>
+        </binding>
+    </button>
+</PropertyList>
