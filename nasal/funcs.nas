@@ -248,8 +248,17 @@ var sublist = func(myvec, elem_to_exclude) {
     return result;
 }
 
+var check_leaderboard = func {
+    print("asdfs");
+    if (getprop("/sim/highairtrader/configs/leaderboard")==1) {
+        setprop("/sim/highairtrader/lewf/enabled", 1);
+    } else {
+        setprop("/sim/highairtrader/lewf/enabled", 0);
+    }
+}
+
 var speed_up = func {
-	if (getprop("/sim/highairtrader/configs/leaderboard")==1) {
+    if (getprop("/sim/highairtrader/configs/mission")==1) {
         screen.log.write("Speed-up disabled at the moment.");
     } else {
         controls.speedup(1);
@@ -257,18 +266,9 @@ var speed_up = func {
 }
 
 var speed_down = func {
-	if (getprop("/sim/highairtrader/configs/leaderboard")==1) {
+    if (getprop("/sim/highairtrader/configs/mission")==1) {
         screen.log.write("Speed-down disabled at the moment.");
     } else {
         controls.speedup(-1);
-    }
-}
-
-var check_leaderboard = func {
-    print("asdfs");
-    if (getprop("/sim/highairtrader/configs/leaderboard")==1) {
-        setprop("/sim/highairtrader/lewf/enabled", 1);
-    } else {
-        setprop("/sim/highairtrader/lewf/enabled", 0);
     }
 }

@@ -63,7 +63,7 @@ var markJobComplete = func() {
         jScabinet.put(jS.to_line());
 
         feedbackstring = jS.pretty_print_outcome();
-        setprop("/sim/highairtrader/mission", 0);
+        setprop("/sim/highairtrader/configs/mission", 0);
     }
     return feedbackstring;
 }
@@ -96,7 +96,7 @@ var markJobAbortedDueCrash = func() {
         var jScabinet = storage.JobSheetCabinet.new();
         jScabinet.put(jS.to_line());
         result = jS.pretty_print_outcome();
-        setprop("/sim/highairtrader/mission", 0);
+        setprop("/sim/highairtrader/configs/mission", 0);
     }
     return result; 
 }
@@ -134,7 +134,8 @@ var markJobAbortedDueOther = func () {
 
         var jScabinet = storage.JobSheetCabinet.new();
         jScabinet.put(jS.to_line());
-        result = jS.pretty_print_outcome();
+        feedbackstring = jS.pretty_print_outcome();
+        setprop("/sim/highairtrader/configs/mission", 0);
     }
     return feedbackstring;
 }
@@ -232,11 +233,10 @@ var acceptPendingOffer = func() {
         var fbs1 = "Pending job offer accepted! ";
         var fbs2 = "Transport goods to destination and update office upon arrival";
         feedbackstring = fbs1 ~ fbs2; 
-        setprop("/sim/highairtrader/configs/mission", !getprop("/sim/highairtrader/configs/mission"));
+        setprop("/sim/highairtrader/configs/mission", 1);
     }
     else { # i.e. file does not exist or is zero size
         feedbackstring = "No pending job offers";
-        setprop("/sim/highairtrader/configs/mission", 0);
     }
     return feedbackstring;
 }
@@ -281,5 +281,4 @@ var get_perf_summary = func() {
 
 #---Misc notes ----------------------------------------------------------------
 # https://wiki.flightgear.org/Nasal_library/io#stat.28.29
-
 
