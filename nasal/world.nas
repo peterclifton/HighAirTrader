@@ -368,7 +368,7 @@ var Office = {
                                   pilot.weather.rainNorm, 
                                   min_start_hour);
 
-        var jobstring = sprintf("Transport %s from %s (%s) to %s (%s). Depart asap after %d:00 hours. Heading: %d Distance: %.1f nm. Payment: £%.2f", 
+        var jobstring = sprintf("Transport %s from %s (%s) to %s (%s). Depart asap after %d:00 hours. Heading: %d Distance: %.1f nm. Payment: %s%.2f", 
                                         goods, 
                                         fromAirport.name, 
                                         fromAirport.id,
@@ -377,6 +377,7 @@ var Office = {
                                         min_start_hour,
                                         math.round(heading),
                                         distance,
+                                        funcs.getCurrency(),
                                         pay
                                         );
 

@@ -36,19 +36,8 @@
                 <currency type="string">Dollars</currency>
                 <freight-market type="string">Short-haul</freight-market>
                 <leaderboard type="bool">true</leaderboard>
+                <mission type="bool">false</mission>
             </configs>
-            <lewf>
-                <name>Leaderboard Enabled While Flying</name>
-                <enabled type="bool">true</enabled>
-                <command>nasal</command>
-                <condition>
-                    <equals>
-                        <property>/position/altitude-agl-ft</property>
-                        <value>200</value>
-                    </equals>
-                </condition>
-                <script>funcs.check_leaderboard();</script>
-            </lewf>
         </highairtrader>
     </sim>
     <input>
@@ -60,7 +49,7 @@
                     <command>nasal</command>
                     <condition>
                         <not-equals>
-                            <property>/gear/gear/wow</property>
+                            <property>/sim/highairtrader/mission</property>
                             <value type="bool">true</value>
                         </not-equals>
                     </condition>
@@ -76,7 +65,7 @@
                     <command>nasal</command>
                     <condition>
                         <not-equals>
-                            <property>/gear/gear/wow</property>
+                            <property>/sim/highairtrader/mission</property>
                             <value type="bool">true</value>
                         </not-equals>
                     </condition>
