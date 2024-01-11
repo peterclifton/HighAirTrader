@@ -54,6 +54,8 @@
 		<live>true</live>
 	</combo>
 
+    <!--Uncomment below checkbox once leaderboard is implemented-->
+    <!--
 	<checkbox>
 		<halign>center</halign>
 		<label>Enable Leaderboard</label>
@@ -68,6 +70,7 @@
 		</binding>
 		<live>true</live>
 	</checkbox>
+    -->
 
 	<button>
 		<legend>Close</legend>
