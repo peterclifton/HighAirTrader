@@ -33,11 +33,17 @@ var markJobComplete = func() {
     #
     # :returns a text string that can be displayed to the user
     var storageDir = constants.storagedirpath;
-    var result = "No current job!";
+    var feedbackstring = "No current job!";
 
     var ao_draw = storage.AcceptedOfferDraw.new();
     if(getprop("/sim/aircraft") == "ufo" or getprop("/sim/aircraft") == "bluebird") {
         feedbackstring = "Aircraft not possible";
+    }
+    else if(funcs.negligibleGroundSpeed() == 0) {
+        feedbackstring = "Aircraft still moving - please come to a stop first";
+    }
+    else if(funcs.brokenGearDetected() == 1) {
+        feedbackstring = "Aircraft is damaged - please report crash to office";
     }
     else if(ao_draw.contains_acceptedoffer()) {
 
@@ -56,9 +62,10 @@ var markJobComplete = func() {
         var jScabinet = storage.JobSheetCabinet.new();
         jScabinet.put(jS.to_line());
 
-        result = jS.pretty_print_outcome();
+        feedbackstring = jS.pretty_print_outcome();
+        setprop("/sim/highairtrader/configs/mission", 0);
     }
-    return result;
+    return feedbackstring;
 }
 
 var markJobAbortedDueCrash = func() {
@@ -89,6 +96,7 @@ var markJobAbortedDueCrash = func() {
         var jScabinet = storage.JobSheetCabinet.new();
         jScabinet.put(jS.to_line());
         result = jS.pretty_print_outcome();
+        setprop("/sim/highairtrader/configs/mission", 0);
     }
     return result; 
 }
@@ -100,10 +108,16 @@ var markJobAbortedDueOther = func () {
     #
     # :returns a text string that can be displayed to the user
     var storageDir = constants.storagedirpath;
-    var result = "No current job!";
+    var feedbackstring = "No current job!";
     var ao_draw = storage.AcceptedOfferDraw.new();
-    
-    if(ao_draw.contains_acceptedoffer()) {
+
+    if(funcs.negligibleGroundSpeed() == 0) {
+        feedbackstring = "Aircraft still moving - please come to a stop first";
+    }
+    else if(funcs.brokenGearDetected() == 1) {
+        feedbackstring = "Aircraft is damaged - please report crash to office";
+    }
+    else if(ao_draw.contains_acceptedoffer()) {
 
         var pilot = world.Pilot.new();
         var maintenancemanager = world.MaintenanceManager.new();
@@ -120,9 +134,10 @@ var markJobAbortedDueOther = func () {
 
         var jScabinet = storage.JobSheetCabinet.new();
         jScabinet.put(jS.to_line());
-        result = jS.pretty_print_outcome();
+        feedbackstring = jS.pretty_print_outcome();
+        setprop("/sim/highairtrader/configs/mission", 0);
     }
-    return result;
+    return feedbackstring;
 }
 
 var getNextJob = func() {
@@ -136,6 +151,10 @@ var getNextJob = func() {
 
     if(ao_draw.contains_acceptedoffer()) {
         feedbackstring = "Existing job must be resolved first!";
+    }
+
+    else if(funcs.negligibleGroundSpeed() == 0) {
+        feedbackstring = "Aircraft still moving - please come to a stop first";
     }
     else {
         var pilot = world.Pilot.new();
@@ -214,6 +233,7 @@ var acceptPendingOffer = func() {
         var fbs1 = "Pending job offer accepted! ";
         var fbs2 = "Transport goods to destination and update office upon arrival";
         feedbackstring = fbs1 ~ fbs2; 
+        setprop("/sim/highairtrader/configs/mission", 1);
     }
     else { # i.e. file does not exist or is zero size
         feedbackstring = "No pending job offers";
@@ -261,5 +281,4 @@ var get_perf_summary = func() {
 
 #---Misc notes ----------------------------------------------------------------
 # https://wiki.flightgear.org/Nasal_library/io#stat.28.29
-
 

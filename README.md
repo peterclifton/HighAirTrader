@@ -1,7 +1,8 @@
 # HighAirTrader Add-on
+
 <img src="images/HighAirTraderLogo.png" align="left" alt="HighAirTrader" width="50"/>  
-This add-on provides an in game mini game for the Flightgear flight sim based around the concept of transporting goods to different airports. 
-<br clear="left"/>   
+
+This add-on provides an in game mini game for the FlightGear Flight Simulator based around the concept of transporting goods to different airports.
 
 ## Installation
 

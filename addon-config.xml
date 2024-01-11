@@ -34,7 +34,47 @@
         <highairtrader>
             <configs>
                 <currency type="string">Dollars</currency>
+                <freight-market type="string">Short-haul</freight-market>
+                <leaderboard type="bool">true</leaderboard>
+                <mission type="bool">false</mission>
             </configs>
         </highairtrader>
     </sim>
+    <input>
+        <keyboard>
+            <key n="97">
+                <name>a</name>
+                <desc>Increase speed-up</desc>
+                <binding>
+                    <command>nasal</command>
+                    <condition>
+                        <not-equals>
+                            <property>/sim/highairtrader/mission</property>
+                            <value type="bool">true</value>
+                        </not-equals>
+                    </condition>
+                    <script>
+                        funcs.speed_up();
+                    </script>
+                </binding>
+            </key>
+            <key n="65">
+                <name>A</name>
+                <desc>Decrease speed-up</desc>
+                <binding>
+                    <command>nasal</command>
+                    <condition>
+                        <not-equals>
+                            <property>/sim/highairtrader/mission</property>
+                            <value type="bool">true</value>
+                        </not-equals>
+                    </condition>
+                    <script>
+                        funcs.speed_down();
+                    </script>
+                </binding>
+            </key>
+        </keyboard>
+    </input>
+
 </PropertyList>

@@ -20,82 +20,36 @@
             <enabled type="bool">true</enabled>
 
             <item>
+                <label>My Job</label>
+                <binding>
+                    <command>dialog-show</command>
+                    <dialog-name>myjob</dialog-name>
+                </binding>
+            </item>
+
+            <item>
                 <label>Configuration</label>
                 <binding>
                     <command>dialog-show</command>
                     <dialog-name>configs</dialog-name>
                 </binding>
             </item>
-
+            <!-- Uncomment this section when implemented-->
+            <!--
             <item>
-                <label>Get new job offer</label>
+                <label>Leaderboard</label>
                 <binding>
-                    <command>nasal</command>
-                    <script>gui.popupTip(interface.getNextJob(),20);</script> <!--i.e. pop up stays up for 20 secs -->
+                    <command>dialog-show</command>
+                    <dialog-name>leaderboard</dialog-name>
                 </binding>
             </item>
-
-            <item>
-                <label>View pending job offer</label>
-                <binding>
-                    <command>nasal</command>
-                    <script>gui.popupTip(interface.viewPendingOffer(),10);</script> <!--i.e. pop up stays up for 10 secs -->
-                </binding>
-            </item>
-
-            <item>
-                <label>Accept pending offer and start job now</label>
-                <binding>
-                    <command>nasal</command>
-                    <script>gui.popupTip(interface.acceptPendingOffer(),10);</script> 
-                </binding>
-            </item>
-
-            <item>
-                <label>View current job</label>
-                <binding>
-                    <command>nasal</command>
-                    <script>gui.popupTip(interface.viewCurrentJob(),10);</script> 
-                </binding>
-            </item>
-
-            <item>
-                <label>Update office: Job complete!</label>
-                <binding>
-                    <command>nasal</command>
-                    <script>gui.popupTip(interface.markJobComplete(),10);</script> 
-                </binding>
-            </item>
-
-            <item>
-                <label>Update office: Job aborted due to crash!</label>
-                <binding>
-                    <command>nasal</command>
-                    <script>gui.popupTip(interface.markJobAbortedDueCrash(),5);</script> 
-                </binding>
-            </item>
-
-            <item>
-                <label>Update office: Job aborted due to any other reason</label>
-                <binding>
-                    <command>nasal</command>
-                    <script>gui.popupTip(interface.markJobAbortedDueOther(),5);</script> 
-                </binding>
-            </item>
-
-            <item>
-                <label>Get performance summary</label>
-                <binding>
-                    <command>nasal</command>
-                    <script>gui.popupTip(interface.get_perf_summary(),10);</script> 
-                </binding>
-            </item>
+            -->
 
             <item>
                 <label>About HighAirTrader</label>
                 <binding>
                     <command>nasal</command>
-                    <script>gui.popupTip(interface.aboutHighAirTrader(),5);</script> 
+                    <script>gui.popupTip(interface.aboutHighAirTrader(),5);</script>
                 </binding>
             </item>
 
@@ -103,7 +57,7 @@
                 <label>Reset HighAirTrader (Caution: wipes saved data)</label>
                 <binding>
                     <command>nasal</command>
-                    <script>gui.popupTip(interface.reset_game(),10);</script> 
+                    <script>gui.popupTip(interface.reset_game(),10);</script>
                 </binding>
             </item>
 

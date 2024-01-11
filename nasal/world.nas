@@ -50,6 +50,7 @@ var Pilot = {
         info.mins           = loctime.mins;
         info.totalFuelLbs   = funcs.getTotalFuelLbs();
         info.atAirportId    = funcs.getClosestAirportId();
+        info.freight_market = funcs.getFreightMarket();
         return info;
     },
     update: func() {
@@ -338,7 +339,17 @@ var Office = {
         # :returns j: a jobsheet object 
 
         var fromAirport = funcs.getClosestAirport();
-        var toAirport = funcs.getRandNearAirport();
+        var toAirport = nil;
+        if (pilot.info.freight_market == 'short-haul') {
+            toAirport = funcs.getRandNearAirport();
+        }
+        elsif (pilot.info.freight_market == 'long-haul') {
+            toAirport = funcs.getLongHaulDestiAirport();
+        }
+        else {
+            toAirport = funcs.getRandNearAirport();
+        }
+
         var goods = funcs.getRandElementOfVector(constants.goodslist);
         var min_start_hour = funcs.getRandElementOfVector(constants.hourPdf);
         var min_start_secs = min_start_hour  * 60 * 60;
@@ -357,7 +368,7 @@ var Office = {
                                   pilot.weather.rainNorm, 
                                   min_start_hour);
 
-        var jobstring = sprintf("Transport %s from %s (%s) to %s (%s). Depart asap after %d:00 hours. Heading: %d Distance: %.1f nm. Payment: £%.2f", 
+        var jobstring = sprintf("Transport %s from %s (%s) to %s (%s). Depart asap after %d:00 hours. Heading: %d Distance: %.1f nm. Payment: %s%.2f", 
                                         goods, 
                                         fromAirport.name, 
                                         fromAirport.id,
@@ -366,6 +377,7 @@ var Office = {
                                         min_start_hour,
                                         math.round(heading),
                                         distance,
+                                        funcs.getCurrency(),
                                         pay
                                         );
 
