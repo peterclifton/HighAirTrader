@@ -29,6 +29,7 @@
     <hrule />
 
     <button>
+        <halign>fill</halign>
         <legend>Get new job offer</legend>
         <binding>
             <command>nasal</command>
@@ -37,6 +38,7 @@
         </binding>
     </button>
     <button>
+        <halign>fill</halign>
         <legend>View pending job offer</legend>
         <binding>
             <command>nasal</command>
@@ -45,6 +47,7 @@
         </binding>
     </button>
     <button>
+        <halign>fill</halign>
         <legend>Accept pending offer and start job now</legend>
         <binding>
             <command>nasal</command>
@@ -52,13 +55,18 @@
         </binding>
     </button>
     <button>
+        <halign>fill</halign>
         <legend>View current job</legend>
         <binding>
             <command>nasal</command>
             <script>gui.popupTip(interface.viewCurrentJob(),10);</script>
         </binding>
     </button>
+
+    <hrule><color><red>0.50</red><green>0.50</green><blue>0.50</blue></color></hrule>
+
     <button>
+        <halign>fill</halign>
         <legend>Update office: Job complete!</legend>
         <binding>
             <command>nasal</command>
@@ -66,6 +74,7 @@
         </binding>
     </button>
     <button>
+        <halign>fill</halign>
         <legend>Update office: Job aborted due to crash!</legend>
         <binding>
             <command>nasal</command>
@@ -73,13 +82,18 @@
         </binding>
     </button>
     <button>
+        <halign>fill</halign>
         <legend>Update office: Job aborted due to any other reason</legend>
         <binding>
             <command>nasal</command>
             <script>gui.popupTip(interface.markJobAbortedDueOther(),5);</script>
         </binding>
     </button>
+
+    <hrule><color><red>0.50</red><green>0.50</green><blue>0.50</blue></color></hrule>
+        
     <button>
+        <halign>fill</halign>
         <legend>Get performance summary</legend>
         <binding>
             <command>nasal</command>
