@@ -5,12 +5,24 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased]
 
-- Check that the current airport is the same as the from airport on the offer before allowing the pending offer to be excepted
-- Limit user interface functionality when not on the ground
+- Add a Leaderboard for competitive play
 - More specialised missions for specific aircraft
-- Check if crashed on landing before rewarding
-- New Graphical User Interface
 - Time speed-up is disabled when holding a job
+- Check that the current airport is the same as the from airport on the offer before allowing the pending offer to be excepted
+
+## [0.4.0] - 2024-01-11
+
+### Added
+
+- Add long-haul type freight jobs
+- Users can now choose between short-haul and long-haul delivery jobs
+- Check if crashed on landing before rewarding - this feature only works for certain aircraft (such as the default C172p)
+- Limit user interface functionality when the aircraft is in motion (aircraft must be stationary get or result jobs)
+- Add HighAirTrader Logo
+
+## Changed
+
+- Complete re-working of the GUI
 
 ## [0.3.0] - 2024-01-05
 
