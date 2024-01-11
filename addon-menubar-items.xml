@@ -36,6 +36,14 @@
             </item>
 
             <item>
+                <label>Leaderboard</label>
+                <binding>
+                    <command>dialog-show</command>
+                    <dialog-name>leaderboard</dialog-name>
+                </binding>
+            </item>
+
+            <item>
                 <label>About HighAirTrader</label>
                 <binding>
                     <command>nasal</command>
