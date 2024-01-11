@@ -21,7 +21,7 @@
 # so can be thought of as being the interface with the user.
 
 var aboutHighAirTrader = func() {
-    var str1 = "HighAirTrader (Version 0.3.0)";
+    var str1 = "HighAirTrader (Version 0.4.0)";
     var str2 = "Developed by Peter Clifton and Thomas Clifton (2023).";
     return str1 ~ " " ~ str2;
 }
