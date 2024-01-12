@@ -139,6 +139,13 @@ var JobSheet = {
         me.paymentrecieved       = data[21] == '' ? nil  : data[21];
     },
 
+    get_fromId: func() {
+        # Returns the fromId value of the jobsheet object
+        # this should be the ICAO id of the airport if this part
+        # of the job sheet has been populated - else nil
+        return me.fromId;
+    },
+
     
     pretty_print_job: func() {
         # Returns a pretty formatted string describing the job as detailed in jobsheet
