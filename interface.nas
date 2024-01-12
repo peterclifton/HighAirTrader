@@ -220,6 +220,9 @@ var acceptPendingOffer = func() {
     else if(ao_draw.contains_acceptedoffer()) {
         feedbackstring = "Existing job must be resolved first!";
     }
+    else if(funcs.negligibleGroundSpeed() == 0) {
+        feedbackstring = "Aircraft still moving - please come to a stop first";
+    }
     else if(draw.contains_pendingoffer()) {
         var pendofferstring = draw.view();      
         var j = paperwork.JobSheet.new();
