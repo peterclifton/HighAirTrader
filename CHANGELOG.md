@@ -8,7 +8,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - Add a Leaderboard for competitive play
 - More specialised missions for specific aircraft
 - Time speed-up is disabled when holding a job
-- Check that the current airport is the same as the from airport on the offer before allowing the pending offer to be excepted
+
+## [0.4.1] - 2024-01-18
+
+### Fixed
+
+- Checks that current airport is same as the offer departure airport before allowing the pending offer to be accepted 
+- Checks that the aircraft is not moving before allowing pending offer to be accepted
 
 ## [0.4.0] - 2024-01-11
 
