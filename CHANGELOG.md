@@ -9,7 +9,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - More specialised missions for specific aircraft
 - Time speed-up is disabled when holding a job
 
-
 ## [0.4.1] - 2024-01-18
 
 ### Fixed
