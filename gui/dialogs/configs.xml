@@ -54,7 +54,7 @@
 		<live>true</live>
 	</combo>
 
-    <!--Uncomment below checkbox once leaderboard is implemented-->
+    <!-- Uncomment below checkbox when leaderboard is implemented -->
     <!--
 	<checkbox>
 		<halign>center</halign>

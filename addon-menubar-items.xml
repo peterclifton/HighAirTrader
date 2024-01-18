@@ -34,7 +34,7 @@
                     <dialog-name>configs</dialog-name>
                 </binding>
             </item>
-            <!-- Uncomment this section when implemented-->
+            <!-- uncomment this section when implemented -->
             <!--
             <item>
                 <label>Leaderboard</label>

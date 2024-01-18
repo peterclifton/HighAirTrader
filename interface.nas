@@ -21,7 +21,7 @@
 # so can be thought of as being the interface with the user.
 
 var aboutHighAirTrader = func() {
-    var str1 = "HighAirTrader (Version 0.4.0)";
+    var str1 = "HighAirTrader (Version 0.4.1)";
     var str2 = "Developed by Peter Clifton and Thomas Clifton (2023).";
     return str1 ~ " " ~ str2;
 }
@@ -220,20 +220,36 @@ var acceptPendingOffer = func() {
     else if(ao_draw.contains_acceptedoffer()) {
         feedbackstring = "Existing job must be resolved first!";
     }
+    else if(funcs.negligibleGroundSpeed() == 0) {
+        feedbackstring = "Aircraft still moving - please come to a stop first";
+    }
     else if(draw.contains_pendingoffer()) {
         var pendofferstring = draw.view();      
-        draw.clear();
-
-        var pilot = world.Pilot.new();
         var j = paperwork.JobSheet.new();
         j.read_in_line(pendofferstring);
-        j = pilot.enter_accept_pending_offer_details(j);
-        ao_draw.put(j.to_line());
 
-        var fbs1 = "Pending job offer accepted! ";
-        var fbs2 = "Transport goods to destination and update office upon arrival";
-        feedbackstring = fbs1 ~ fbs2; 
-        setprop("/sim/highairtrader/configs/mission", 1);
+        # Check that we are still at the same airport as the pending offder 'from' 
+        # airport before allowing the job to be accepted
+        if(j.get_fromId() == funcs.getClosestAirportId()) { 
+            # we are still at the same airport, so the pending offer will get turned
+            # into the live job.
+            
+            # first empty the pending offer draw (the job sheet will get put in the 
+            # accepted offer draw):
+            draw.clear();  
+
+            # rest of job acceptance admin:
+            var pilot = world.Pilot.new();
+            j = pilot.enter_accept_pending_offer_details(j);
+            ao_draw.put(j.to_line());
+            var fbs1 = "Pending job offer accepted! ";
+            var fbs2 = "Transport goods to destination and update office upon arrival";
+            feedbackstring = fbs1 ~ fbs2; 
+            setprop("/sim/highairtrader/configs/mission", 1);
+       }
+       else { # we are not at the same airport as the pending offer's 'from' airport:
+           feedbackstring = "You must be at " ~ j.get_fromId() ~ " to start this job";
+       }
     }
     else { # i.e. file does not exist or is zero size
         feedbackstring = "No pending job offers";
