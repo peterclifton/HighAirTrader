@@ -307,19 +307,22 @@ var Office = {
         var balance = jobsheetbook.running_balance();
         var rep_level = "";
         if(balance < 5000.0) {
-            rep_level = "obscure";
+            rep_level = "obscure (Solo Operator)";
         }
         elsif(balance >= 5000.0 and balance < 20000.0) {
-            rep_level = "local";
+            rep_level = "local (Local Air Courier)";
         }
         elsif(balance >= 20000.0 and balance < 100000.0) {
-            rep_level = "regional";
+            rep_level = "regional (Regional Air Courier)";
         }
         elsif(balance >= 100000.0 and balance < 1000000.0) {
-            rep_level = "national";
+            rep_level = "national (Domestic Air Logistics Company)";
         }
-        else { # i.e. balance is greater than or equal to 1M
-            rep_level = "global";
+        elsif(balance >= 1000000.0 and balance < 2000000.0) {
+            rep_level = "International (International Air Carrier)";
+        }
+        else { # i.e. balance is greater than or equal to 2M
+            rep_level = "global (Multinational Air Logistics Group)";
         }
         return rep_level;
     },
