@@ -18,3 +18,7 @@ Installation is standard:
 ## Gameplay Tutorial
 
 [![Video](https://img.youtube.com/vi/VtL-F7PAUfg/maxresdefault.jpg)](https://www.youtube.com/watch?v=VtL-F7PAUfg)
+
+## Hints
+
+Use the in game configuration menu to choose between short or long haul jobs.

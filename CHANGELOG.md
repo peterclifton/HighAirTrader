@@ -9,6 +9,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - More specialised missions for specific aircraft
 - Time speed-up is disabled when holding a job
 
+## [0.5.0] - 2025-12-24
+
+- Add more descriptive reputation level descriptors
+
+
 ## [0.4.1] - 2024-01-18
 
 ### Fixed
